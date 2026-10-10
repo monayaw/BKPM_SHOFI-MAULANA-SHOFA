@@ -1,0 +1,18 @@
+
+# File konfigurasi lokal
+.env
+
+# Folder cache dan log
+/cache/
+/logs/
+*.log
+
+# File sistem Windows
+Thumbs.db
+Desktop.ini
+
+# File editor
+.vscode/
+
+# File sementara
+*.tmp
