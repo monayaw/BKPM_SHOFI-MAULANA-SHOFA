@@ -5,7 +5,7 @@
     href="/WebServer/acara12/public/mahasiswa/create"
     class="btn btn-primary mb-3"
 >
-    + Tambah Mahasiswa
+    + Tambah Mahasiswa Polije
 </a>
 
 <table class="table table-bordered">
