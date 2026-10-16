@@ -1,3 +1,6 @@
+<?php
+echo "Ini versi DASHBOARD";
+?>
 
 <h2>Data Mahasiswa</h2>
 
