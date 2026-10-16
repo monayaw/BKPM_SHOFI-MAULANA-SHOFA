@@ -1,3 +1,6 @@
+<?php
+echo "Ini versi MAIN";
+?>
 
 <h2>Data Mahasiswa</h2>
 
