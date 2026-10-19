@@ -85,6 +85,7 @@
             class="form-control"
             value="<?= htmlspecialchars($mahasiswa['email'] ?? '') ?>"
         >
+    </div>
 
     <div class="mb-3">
 
