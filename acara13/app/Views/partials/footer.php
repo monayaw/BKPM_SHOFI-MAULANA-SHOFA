@@ -1,0 +1,7 @@
+
+<footer class="text-center mt-5 mb-3">
+    <p>&copy; 2026 SI Akademik</p>
+</footer>
+
+</body>
+</html>
