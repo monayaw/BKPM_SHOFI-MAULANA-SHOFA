@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost/WebServer/acara19/public/register
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username": "uji_email",
+      "email": "bukan-email",
+      "password": "Rahasia123!"
+    }
+order: 2000

@@ -1,0 +1,4 @@
+name: Acara 19 - Staging (Template)
+values:
+  - key: base_url
+    value: 'https://ganti-dengan-domain-staging-anda.example'

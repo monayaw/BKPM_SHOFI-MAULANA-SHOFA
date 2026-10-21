@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost/WebServer/acara17/public/mahasiswa?id=36
+method: DELETE
+queryParams:
+  id: "36"
+body:
+  type: json
+  content: ""
+order: 5000

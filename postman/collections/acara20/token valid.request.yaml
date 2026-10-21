@@ -1,0 +1,27 @@
+$kind: http-request
+url: http://localhost/WebServer/acara20/public/mahasiswa
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \            \"id\": 39,\r
+
+    \            \"nim\": \"240000008\",\r
+
+    \            \"nama\": \"Shofi8 Test\",\r
+
+    \            \"prodi\": \"Teknik Informatika\",\r
+
+    \            \"status\": \"aktif\",\r
+
+    \            \"email\": \"shofi9_test@example.com\",\r
+
+    \            \"dosen_id\": null\r
+
+    \        }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0os0}}"
+order: 3000

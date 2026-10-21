@@ -1,0 +1,25 @@
+$kind: http-request
+url: http://localhost/WebServer/acara18/public/mahasiswa?id=38
+method: PUT
+queryParams:
+  id: "38"
+body:
+  type: json
+  content: "{\r
+
+    \            \"id\": 38,\r
+
+    \            \"nim\": \"240000009\",\r
+
+    \            \"nama\": \"Shofi5 Test\",\r
+
+    \            \"prodi\": \"Teknik Informatika\",\r
+
+    \            \"status\": \"aktif\",\r
+
+    \            \"email\": \"shofi5_test@example.com\",\r
+
+    \            \"dosen_id\": null\r
+
+    \        }"
+order: 4000

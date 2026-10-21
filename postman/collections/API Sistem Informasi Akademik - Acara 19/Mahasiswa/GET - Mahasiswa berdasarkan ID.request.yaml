@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost/WebServer/acara19/public/mahasiswa?=1
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  "": "1"
+body:
+  type: json
+  content: ""
+order: 2000

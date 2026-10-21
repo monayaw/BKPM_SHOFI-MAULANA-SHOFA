@@ -1,0 +1,23 @@
+$kind: http-request
+url: http://localhost/WebServer/acara20/public/mahasiswa
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \            \"id\": 41,\r
+
+    \            \"nim\": \"240000008\",\r
+
+    \            \"nama\": \"kei Test\",\r
+
+    \            \"prodi\": \"Teknik Informatika\",\r
+
+    \            \"status\": \"aktif\",\r
+
+    \            \"email\": \"kei_test@example.com\",\r
+
+    \            \"dosen_id\": null\r
+
+    \        }"
+order: 5684

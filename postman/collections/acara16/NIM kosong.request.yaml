@@ -1,0 +1,23 @@
+$kind: http-request
+url: http://localhost/WebServer/acara16/public/api/mahasiswa
+method: POST
+body:
+  type: json
+  content: " {\r
+
+    \        \"id\": 34,\r
+
+    \        \"nim\": \"\",\r
+
+    \        \"nama\": \"Shofi Test\",\r
+
+    \        \"prodi\": \"Teknik Informatika\",\r
+
+    \        \"status\": \"aktif\",\r
+
+    \        \"email\": \"shofi_test@example.com\",\r
+
+    \        \"dosen_id\": null\r
+
+    \    }"
+order: 7000

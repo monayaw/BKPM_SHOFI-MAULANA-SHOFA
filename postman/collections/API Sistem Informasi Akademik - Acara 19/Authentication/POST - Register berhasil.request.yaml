@@ -1,0 +1,21 @@
+$kind: http-request
+url: http://localhost/WebServer/acara19/public/register
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username": "andi",
+      "email": "andi@example.com",
+      "password": "password123"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status 201 Created', function () { pm.response.to.have.status(201); });
+      pm.test('Response JSON punya success true', function () { pm.expect(pm.response.json().success).to.eql(true); });
+    language: text/javascript
+order: 1000

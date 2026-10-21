@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost/WebServer/acara17/public/mahasiswa
+method: GET
+body:
+  type: json
+  content: ""
+order: 1000

@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost/WebServer/acara16/public/api/mahasiswa.php?id=34
+method: GET
+queryParams:
+  id: "34"
+body:
+  type: json
+  content: ""
+order: 2000

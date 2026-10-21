@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost/WebServer/acara17/public/buku
+method: GET
+order: 1000

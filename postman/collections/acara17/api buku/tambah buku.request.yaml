@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost/WebServer/acara17/public/buku
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \            \"id\": 8,\r
+
+    \            \"judul\": \"Belajar xampp untuk Pemula\",\r
+
+    \            \"penulis\": \"Sabda\",\r
+
+    \            \"tahun\": \"2026\"\r
+
+    \        }"
+order: 2000

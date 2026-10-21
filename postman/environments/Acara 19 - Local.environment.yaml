@@ -1,0 +1,4 @@
+name: Acara 19 - Local
+values:
+  - key: base_url
+    value: 'http://localhost/WebServer/acara19/public'

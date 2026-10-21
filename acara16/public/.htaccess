@@ -1,6 +1,5 @@
 RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteRule ^ index.php [L]
+# RESTful endpoint: /api/mahasiswa dan /api/mahasiswa/{id}
+RewriteRule ^api/mahasiswa/?$ api/mahasiswa.php [QSA,L]
+RewriteRule ^api/mahasiswa/([0-9]+)/?$ api/mahasiswa.php?id=$1 [QSA,L]

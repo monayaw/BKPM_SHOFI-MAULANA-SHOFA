@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost/WebServer/acara20/public/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"username\": \"andiwww\",\r
+
+    \  \"email\": \"andi@example.com\",\r
+
+    \  \"password\": \"password123\"\r
+
+    }"
+order: 2000
