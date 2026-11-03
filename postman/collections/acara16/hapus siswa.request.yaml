@@ -1,5 +1,5 @@
 $kind: http-request
-url: http://localhost/WebServer/acara16/public/api/mahasiswa/34
+url: http://localhost/WebServer/acara16/public/api/mahasiswa/40
 method: DELETE
 body:
   type: json

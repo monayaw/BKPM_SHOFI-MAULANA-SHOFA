@@ -1,0 +1,42 @@
+$kind: http-example
+request:
+  url: http://localhost/WebServer/acara23/public/login
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \  \"username\": \"andi\",\r
+
+      \  \"email\": \"andi@example.com\",\r
+
+      \  \"password\": \"password123\"\r
+
+      }\r\n"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Date: Sat, 31 Oct 2026 06:49:38 GMT
+    Server: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    X-Powered-By: PHP/8.2.12
+    Content-Length: "430"
+    Keep-Alive: timeout=5, max=100
+    Connection: Keep-Alive
+    Content-Type: application/json; charset=utf-8
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "message": "Login berhasil.",
+        "data": {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhbmRpIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3OTM0MjkzNzgsImV4cCI6MTc5MzQyOTY3OH0.QeVQ100aEdlIkPOkSPfO2qj1FVbCbhnOillJEmq6wDg",
+          "token_type": "Bearer",
+          "expires_in": 3600,
+          "role": "user"
+        },
+        "errors": {},
+        "timestamp": "2026-10-31T07:49:38+01:00"
+      }
+order: 1000

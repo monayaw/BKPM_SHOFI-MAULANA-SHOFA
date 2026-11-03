@@ -74,4 +74,46 @@ class AuthController
             Response::json(500, false, 'Terjadi kesalahan server.');
         }
     }
+    
+public function login(): void
+{
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+        header('Allow: POST');
+        Response::json(405, false, 'Method tidak diizinkan. Gunakan POST.');
+    }
+
+    $raw = file_get_contents('php://input');
+    $data = json_decode($raw, true);
+
+    if (!is_array($data)) {
+        Response::json(400, false, 'Format JSON tidak valid.');
+    }
+
+    $username = trim((string) ($data['username'] ?? ''));
+    $password = (string) ($data['password'] ?? '');
+
+    if ($username === '' || $password === '') {
+        Response::json(422, false, 'Username dan password wajib diisi.');
+    }
+
+    try {
+        $user = $this->model->findByUsername($username);
+
+        if (!$user || !password_verify($password, $user['password'])) {
+            Response::json(401, false, 'Username atau password salah.');
+        }
+
+        Response::json(200, true, 'Login berhasil.', [
+            'id' => $user['id'],
+            'username' => $user['username'],
+            'email' => $user['email'],
+        ]);
+    } catch (Throwable $e) {
+        error_log('[Acara19 login] ' . $e->getMessage());
+        Response::json(500, false, 'Terjadi kesalahan server.');
+    }
 }
+
+}
+
+

@@ -1,0 +1,19 @@
+$kind: http-request
+description: |-
+  **Controller:** MahasiswaController  
+  **Method:** handle()
+
+  **Fungsi:** Mengubah sebagian data mahasiswa berdasarkan ID
+url: http://localhost/WebServer/acara19/public/mahasiswa?id=41
+method: PATCH
+queryParams:
+  id: "41"
+body:
+  type: json
+  content: "{\r
+
+    \        \"nama\": \"Azira cantik\"\r
+
+    \    }"
+examples: .resources/PATCH - Mengubah sebagian.resources/examples
+order: 5000

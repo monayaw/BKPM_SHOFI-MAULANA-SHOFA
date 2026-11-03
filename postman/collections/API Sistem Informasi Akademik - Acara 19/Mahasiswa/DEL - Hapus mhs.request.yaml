@@ -1,0 +1,12 @@
+$kind: http-request
+description: |-
+  **Controller:** MahasiswaController  
+  **Method:** handle()
+
+  **Fungsi:** Menghapus data mahasiswa berdasarkan ID
+url: http://localhost/WebServer/acara19/public/mahasiswa?id=31
+method: DELETE
+queryParams:
+  id: "31"
+examples: .resources/DEL - Hapus mhs.resources/examples
+order: 6000

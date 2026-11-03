@@ -1,3 +1,4 @@
+
 <?php
 
 class Router
@@ -10,15 +11,22 @@ class Router
         if (str_starts_with($uri, $base)) {
             $uri = substr($uri, strlen($base));
         }
+
         $uri = trim($uri, '/');
 
-        // Endpoint register untuk praktikum autentikasi.
+        // Register
         if ($uri === 'register') {
             (new AuthController())->register();
             return;
         }
 
-        // Endpoint mahasiswa dari Acara 18 tetap tersedia.
+        // Login
+        if ($uri === 'login') {
+            (new AuthController())->login();
+            return;
+        }
+
+        // Mahasiswa
         if ($uri === '' || $uri === 'mahasiswa' || $uri === 'api/mahasiswa') {
             (new MahasiswaController())->handle();
             return;

@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost/WebServer/acara17/public/buku?id=9
+method: PUT
+queryParams:
+  id: "9"
+body:
+  type: json
+  content: "{\r
+
+    \            \"id\": 8,\r
+
+    \            \"judul\": \"Belajar xampp untuk Pemula\",\r
+
+    \            \"penulis\": \"nindi\",\r
+
+    \            \"tahun\": \"2026\"\r
+
+    \        }"
+order: 3000

@@ -1,9 +1,20 @@
-# Use this workspace to collaborate
 workspace:
   id: 57d24d28-06fe-4508-b3fc-0f2949708082
 
-# All resources in the `postman/` folder are automatically registered in Local View.
-# Point to additional files outside the `postman/` folder to register them individually. Example:
-#localResources:
-#  collections:
-#    - ../tests/E2E Test Collection/
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/acara16: 59017768-58790b03-41e2-47d0-9eec-2acdb60e0ee5
+    ../postman/collections/acara17: 59017768-42b10a82-967e-41eb-8b75-1c5dcb0cf8f0
+    ../postman/collections/acara18: 59017768-dda66a67-ad1c-4cff-bbf8-130ff82e38b2
+    ../postman/collections/acara20: 59017768-ba05a395-028a-4a7a-8987-6e2a27154dc6
+    ../postman/collections/API Sistem Informasi Akademik - Acara 19: 59017768-b538cd07-6ff1-42e1-a91d-cb8f73f1bb2d
+  environments:
+    ../postman/environments/Acara 19 - Local.environment.yaml: 59017768-4df87d92-3031-44aa-bdfe-b7e95d4e4acd
+    ../postman/environments/Acara 19 - Staging (Template).environment.yaml: 59017768-e0b9ebba-9bd3-4679-9b32-98c2bce0a39c
+    ../postman/environments/New Environment.environment.yaml: 59017768-f3acb1bb-dfbb-46b0-8eb3-8bd48419a4ae
+  documents:
+    ../postman/documents/New Document.md: 9e3624e8-ed50-4318-88d1-62ef63ea74bc
+  globals:
+    ../postman/globals/workspace.globals.yaml: 556badcf-8569-4cd1-8273-99fe04ffbabf

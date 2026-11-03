@@ -1,6 +1,13 @@
 $kind: http-request
+description: |-
+  Controller: MahasiswaController
+
+  Method: handle()
+
+    
+  Fungsi: Menampilkan data mahasiswa berdasarkan ID.
 url: http://localhost/WebServer/acara19/public/mahasiswa?=1
-method: GET
+method: PUT
 headers:
   Accept: application/json
 queryParams:
@@ -8,4 +15,5 @@ queryParams:
 body:
   type: json
   content: ""
+examples: .resources/GET - Mahasiswa berdasarkan ID.resources/examples
 order: 2000

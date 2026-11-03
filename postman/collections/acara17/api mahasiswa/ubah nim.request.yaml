@@ -22,4 +22,5 @@ body:
     \        \"dosen_id\": null\r
 
     \    }"
+examples: .resources/ubah nim.resources/examples
 order: 4000

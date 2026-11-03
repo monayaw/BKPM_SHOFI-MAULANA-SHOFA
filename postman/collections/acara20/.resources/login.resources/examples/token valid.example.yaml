@@ -1,0 +1,45 @@
+$kind: http-example
+request:
+  url: http://localhost/WebServer/acara20/public/mahasiswa
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \            \"id\": 39,\r
+
+      \            \"nim\": \"240000008\",\r
+
+      \            \"nama\": \"Shofi8 Test\",\r
+
+      \            \"prodi\": \"Teknik Informatika\",\r
+
+      \            \"status\": \"aktif\",\r
+
+      \            \"email\": \"shofi9_test@example.com\",\r
+
+      \            \"dosen_id\": null\r
+
+      \        }"
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Date: Sat, 31 Oct 2026 06:26:00 GMT
+    Server: Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    X-Powered-By: PHP/8.2.12
+    Content-Length: "164"
+    Keep-Alive: timeout=5, max=100
+    Connection: Keep-Alive
+    Content-Type: application/json; charset=utf-8
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "message": "Token tidak valid atau kedaluwarsa.",
+        "data": null,
+        "errors": {},
+        "timestamp": "2026-10-31T07:26:00+01:00"
+      }
+order: 4000

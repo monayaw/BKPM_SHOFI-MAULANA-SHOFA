@@ -1,4 +1,9 @@
 $kind: http-request
+description: |-
+  **Controller:** `AuthController`  
+  **Method:** `register()`
+
+  **Fungsi:** Menangani proses pendaftaran akun pengguna baru.
 url: http://localhost/WebServer/acara19/public/register
 method: POST
 headers:
@@ -8,8 +13,8 @@ body:
   type: json
   content: |-
     {
-      "username": "andi",
-      "email": "andi@example.com",
+      "username": "nindi",
+      "email": "abc",
       "password": "password123"
     }
 scripts:
@@ -18,4 +23,5 @@ scripts:
       pm.test('Status 201 Created', function () { pm.response.to.have.status(201); });
       pm.test('Response JSON punya success true', function () { pm.expect(pm.response.json().success).to.eql(true); });
     language: text/javascript
+examples: .resources/POST - Register berhasil.resources/examples
 order: 1000

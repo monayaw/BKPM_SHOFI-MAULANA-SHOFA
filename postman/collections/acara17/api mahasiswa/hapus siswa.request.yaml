@@ -6,4 +6,5 @@ queryParams:
 body:
   type: json
   content: ""
+examples: .resources/hapus siswa.resources/examples
 order: 5000

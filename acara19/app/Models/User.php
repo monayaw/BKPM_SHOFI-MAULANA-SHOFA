@@ -11,7 +11,7 @@ class User
 
     public function create(array $data): int
     {
-        // Validasi email sebelum data disimpan (tugas praktik mandiri).
+        
         if (!filter_var($data['email'] ?? '', FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException('Format email tidak valid.');
         }

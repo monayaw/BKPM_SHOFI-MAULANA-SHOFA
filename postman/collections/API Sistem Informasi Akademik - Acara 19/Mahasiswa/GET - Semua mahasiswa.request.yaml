@@ -1,6 +1,15 @@
 $kind: http-request
-url: "{{base_url}}/mahasiswa"
+description: |-
+  Controller: MahasiswaController  
+  Method: handle()
+
+  Fungsi: Menampilkan semua data mahasiswa.
+url: http://localhost/WebServer/acara19/public/mahasiswa
 method: GET
 headers:
   Accept: application/json
+body:
+  type: json
+  content: ""
+examples: .resources/GET - Semua mahasiswa.resources/examples
 order: 1000

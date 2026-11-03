@@ -1,0 +1,342 @@
+
+openapi: 3.0.3
+
+info:
+  title: API Sistem Informasi Akademik
+  version: 1.0.0
+  description: Dokumentasi REST API Sistem Informasi Akademik menggunakan OpenAPI 3.0.
+
+servers:
+  - url: http://localhost/WebServer/acara22/public
+    description: Server lokal XAMPP
+
+paths:
+
+  # REGISTER
+  /register:
+    post:
+      tags:
+        - Autentikasi
+      summary: Mendaftarkan pengguna baru
+      description: Endpoint publik untuk membuat akun pengguna baru.
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+            example:
+              username: shofi_test
+              email: shofi@example.com
+              password: Rahasia123!
+      responses:
+        '201':
+          description: Registrasi berhasil.
+        '400':
+          description: Format JSON tidak valid.
+        '409':
+          description: Username atau email sudah terdaftar.
+        '422':
+          description: Validasi registrasi gagal.
+        '500':
+          description: Kesalahan server atau database.
+
+  # LOGIN
+  /login:
+    post:
+      tags:
+        - Autentikasi
+      summary: Autentikasi pengguna dan menghasilkan JWT
+      description: Endpoint publik untuk memeriksa username dan password.
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              username: shofi_test
+              password: Rahasia123!
+      responses:
+        '200':
+          description: Login berhasil dan token JWT dikembalikan.
+        '400':
+          description: Format JSON tidak valid.
+        '401':
+          description: Username atau password salah.
+        '422':
+          description: Username dan password wajib diisi.
+        '500':
+          description: Kesalahan server.
+
+  # MAHASISWA
+  /mahasiswa:
+    # GET
+    get:
+      tags:
+        - Mahasiswa
+      summary: Mengambil data mahasiswa
+      description: Mengambil seluruh data mahasiswa atau berdasarkan ID.
+      operationId: getMahasiswa
+      parameters:
+        - name: id
+          in: query
+          required: false
+          description: ID mahasiswa.
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Data mahasiswa berhasil diambil.
+        '400':
+          description: ID mahasiswa tidak valid.
+        '404':
+          description: Mahasiswa tidak ditemukan.
+        '500':
+          description: Kesalahan server.
+
+    # POST
+    post:
+      tags:
+        - Mahasiswa
+      summary: Menambahkan data mahasiswa
+      description: Menambahkan mahasiswa baru menggunakan Bearer JWT.
+      operationId: createMahasiswa
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MahasiswaRequest'
+            example:
+              nim: '230100002'
+              nama: Siti
+              prodi: Manajemen Informatika
+              status: aktif
+              email: siti@example.com
+              dosen_id: null
+      responses:
+        '201':
+          description: Mahasiswa berhasil ditambahkan.
+        '401':
+          description: Token tidak valid.
+        '409':
+          description: NIM sudah terdaftar.
+        '422':
+          description: Validasi data mahasiswa gagal.
+        '500':
+          description: Kesalahan server.
+
+    # PUT
+    put:
+      tags:
+        - Mahasiswa
+      summary: Memperbarui seluruh data mahasiswa
+      operationId: updateMahasiswa
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MahasiswaRequest'
+      responses:
+        '200':
+          description: Data mahasiswa berhasil diperbarui.
+        '400':
+          description: ID tidak valid.
+        '401':
+          description: Token tidak valid.
+        '404':
+          description: Mahasiswa tidak ditemukan.
+        '409':
+          description: NIM sudah digunakan.
+        '422':
+          description: Validasi gagal.
+        '500':
+          description: Kesalahan server.
+
+    # PATCH
+    patch:
+      tags:
+        - Mahasiswa
+      summary: Memperbarui sebagian data mahasiswa
+      operationId: patchMahasiswa
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nim:
+                  type: string
+                  pattern: '^[0-9]{9}$'
+                nama:
+                  type: string
+                prodi:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                    - aktif
+                    - cuti
+                    - lulus
+                email:
+                  type: string
+                  format: email
+                dosen_id:
+                  type: integer
+                  nullable: true
+            example:
+              nama: Budi Santoso
+      responses:
+        '200':
+          description: Data mahasiswa berhasil diperbarui.
+        '400':
+          description: ID tidak valid.
+        '401':
+          description: Token tidak valid.
+        '404':
+          description: Mahasiswa tidak ditemukan.
+        '422':
+          description: Validasi gagal.
+        '500':
+          description: Kesalahan server.
+
+    # DELETE
+    delete:
+      tags:
+        - Mahasiswa
+      summary: Menghapus data mahasiswa
+      operationId: deleteMahasiswa
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Data mahasiswa berhasil dihapus.
+        '400':
+          description: ID tidak valid.
+        '401':
+          description: Token tidak valid.
+        '404':
+          description: Mahasiswa tidak ditemukan.
+        '500':
+          description: Kesalahan server.
+
+components:
+
+  # SECURITY JWT
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Masukkan token JWT hasil login.
+
+  # REQUEST DAN RESPONSE SCHEMAS
+  schemas:
+
+    RegisterRequest:
+      type: object
+      required:
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: string
+          minLength: 3
+          maxLength: 50
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          format: password
+
+    MahasiswaRequest:
+      type: object
+      required:
+        - nim
+        - nama
+        - prodi
+        - status
+        - email
+      properties:
+        nim:
+          type: string
+          pattern: '^[0-9]{9}$'
+          description: NIM harus terdiri dari 9 digit angka.
+        nama:
+          type: string
+        prodi:
+          type: string
+        status:
+          type: string
+          enum:
+            - aktif
+            - cuti
+            - lulus
+        email:
+          type: string
+          format: email
+        dosen_id:
+          type: integer
+          nullable: true
+
+    ApiResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data: {}
+        errors:
+          type: object
+          additionalProperties: true
+        timestamp:
+          type: string
+          format: date-time

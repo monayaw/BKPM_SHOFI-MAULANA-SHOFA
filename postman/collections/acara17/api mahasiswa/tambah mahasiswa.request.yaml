@@ -20,4 +20,5 @@ body:
     \        \"dosen_id\": null\r
 
     \    }"
+examples: .resources/tambah mahasiswa.resources/examples
 order: 3000

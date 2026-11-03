@@ -1,0 +1,31 @@
+$kind: http-request
+description: |-
+  **Controller:** MahasiswaController  
+  **Method:** handle()
+
+  **Fungsi:** Mengubah seluruh data mahasiswa berdasarkan ID.
+url: http://localhost/WebServer/acara19/public/mahasiswa?id=41
+method: PUT
+queryParams:
+  id: "41"
+body:
+  type: json
+  content: " {\r
+
+    \            \"id\": 41,\r
+
+    \            \"nim\": \"240000006\",\r
+
+    \            \"nama\": \"Azira Test\",\r
+
+    \            \"prodi\": \"Teknik Informatika\",\r
+
+    \            \"status\": \"aktif\",\r
+
+    \            \"email\": \"azira_test@example.com\",\r
+
+    \            \"dosen_id\": null\r
+
+    \        }"
+examples: .resources/PUT - Mengubah seluru data.resources/examples
+order: 4000

@@ -4,4 +4,5 @@ method: GET
 body:
   type: json
   content: ""
+examples: .resources/semua mahasiswa.resources/examples
 order: 1000
