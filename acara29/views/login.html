@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Sistem Informasi Akademik</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6f8;
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            color: #24313d
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            width: min(92%, 390px);
+            box-shadow: 0 2px 14px #0001
+        }
+
+        h1 {
+            color: #145b4b;
+            font-size: 23px
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 6px
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccd5d9;
+            border-radius: 6px
+        }
+
+        button {
+            margin-top: 18px;
+            width: 100%;
+            padding: 12px;
+            background: #145b4b;
+            color: white;
+            border: 0;
+            border-radius: 7px;
+            cursor: pointer
+        }
+
+        #pesan {
+            color: #b42318
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <h1>Login Sistem Informasi Akademik</h1>
+        <p>Masuk untuk membuka dashboard.</p>
+        <form id="form-login"><label for="username">Username</label><input id="username" name="username" required
+                autocomplete="username"><label for="password">Password</label><input id="password" name="password"
+                type="password" required autocomplete="current-password"><button type="submit">Login</button></form>
+        <p id="pesan" role="status"></p>
+    </main>
+    <script src="util.js"></script>
+<script src="login.js"></script>
+</body>
+
+</html>

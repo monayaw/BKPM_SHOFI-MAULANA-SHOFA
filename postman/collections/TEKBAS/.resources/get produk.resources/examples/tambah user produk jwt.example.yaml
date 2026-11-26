@@ -1,0 +1,38 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/produk
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"REALME-C55-128\",\r
+
+      \    \"merek\": \"Realme\",\r
+
+      \    \"model\": \"C55\",\r
+
+      \    \"harga\": 1999000,\r
+
+      \    \"stok\": 5,\r
+
+      \    \"aktif\": true\r
+
+      }"
+response:
+  statusCode: 403
+  statusText: FORBIDDEN
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 01:47:16 GMT
+    Content-Type: application/json
+    Content-Length: "69"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "pesan": "Kamu tidak memiliki hak akses!",
+        "status": "error"
+      }
+order: 3000

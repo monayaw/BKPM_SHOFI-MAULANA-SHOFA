@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Sistem Informasi Akademik</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 28px 16px;
+            font-family: Arial, sans-serif;
+            background: #f3f6f8;
+            color: #24313d;
+        }
+
+        main {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .header,
+        .panel {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 10px #0000000d;
+        }
+
+        .header {
+            background: #145b4b;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0 0 7px;
+        }
+
+        h2 {
+            font-size: 19px;
+            margin: 0;
+        }
+
+        .header p {
+            margin: 0;
+        }
+
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 0;
+            background: #145b4b;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            filter: brightness(.92);
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: wait;
+        }
+
+        .header button {
+            background: white;
+            color: #145b4b;
+        }
+
+        .summary {
+            font-size: 16px;
+            margin: 12px 0 0;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 850px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 11px;
+            border-bottom: 1px solid #e7ecef;
+            vertical-align: middle;
+        }
+
+        th {
+            background: #edf4f1;
+        }
+
+        #pesan {
+            color: #52616b;
+        }
+
+        .small {
+            padding: 7px 10px;
+            margin-right: 4px;
+        }
+
+        .danger {
+            background: #b42318;
+        }
+
+        .admin-only {
+            display: none;
+        }
+
+        body.is-admin .admin-only {
+            display: inline-block;
+        }
+
+        .foto-mini {
+            width: 58px;
+            height: 58px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #edf1f2;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 5;
+            padding: 18px;
+            background: #0008;
+            overflow-y: auto;
+        }
+
+        .modal.open {
+            display: grid;
+            place-items: center;
+        }
+
+        .modal-card {
+            width: min(100%, 500px);
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        label {
+            display: grid;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5d9;
+            border-radius: 7px;
+            font: inherit;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .secondary {
+            background: #687780;
+        }
+
+        #preview-foto {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .note {
+            color: #64727a;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 14px 9px;
+            }
+
+            .header,
+            .panel {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="notifikasi" role="status" aria-live="polite" style="display:none;padding:12px 16px;margin-bottom:14px;border-radius:8px;background:#e7f5ec;color:#176b37"></div>
+        <header class="header">
+            <div>
+                <h1>Dashboard Sistem Informasi Akademik</h1>
+                <p id="identitas">Memeriksa sesi...</p>
+            </div>
+            <button id="btn-logout" type="button">Logout</button>
+        </header>
+
+        <section class="panel">
+            <h2>Ringkasan</h2>
+            <p class="summary">Total mahasiswa: <strong id="total-mahasiswa">-</strong></p>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <h2>Data Mahasiswa</h2>
+                <button id="btn-tambah" class="admin-only" type="button">Tambah Mahasiswa</button>
+            </div>
+            <p id="pesan" role="status">Memuat data...</p>
+            <div class="table-wrap">
+                <table id="tabel-mahasiswa">
+                    <thead>
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Prodi</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Foto</th>
+                            <th class="admin-only">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="modal-mahasiswa" role="dialog" aria-modal="true" aria-labelledby="judul-form">
+        <section class="modal-card">
+            <h2 id="judul-form">Tambah Mahasiswa</h2>
+            <form id="form-mahasiswa" class="form-grid">
+                <input type="hidden" name="id" id="mahasiswa-id">
+                <label>NIM (maksimal 20 karakter)
+                    <input name="nim" id="nim" required inputmode="numeric" maxlength="20">
+                </label>
+                <label>Nama
+                    <input name="nama" id="nama" required>
+                </label>
+                <label>Program Studi
+                    <input name="prodi" id="prodi" required>
+                </label>
+                <label>Status
+                    <select name="status" id="status" required>
+                        <option value="aktif">Aktif</option>
+                        <option value="cuti">Cuti</option>
+                        <option value="lulus">Lulus</option>
+                    </select>
+                </label>
+                <label>Email
+                    <input name="email" id="email" type="email">
+                </label>
+                <label>Foto (JPG/PNG, maksimal 2 MB)
+                    <input name="foto" id="foto" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+                </label>
+                <p class="note" id="catatan-foto">Foto boleh dikosongkan.</p>
+                <img id="preview-foto" alt="Pratinjau foto">
+                <div class="modal-actions">
+                    <button type="button" class="secondary" id="btn-batal">Batal</button>
+                    <button type="submit" id="btn-simpan">Simpan</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="util.js"></script>
+<script src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tambah Mahasiswa - Sistem Informasi Akademik</title>
+<style>
+*{box-sizing:border-box} body{margin:0;padding:28px 16px;font-family:Arial,sans-serif;background:#f3f6f8;color:#24313d}
+main{max-width:620px;margin:auto;background:white;padding:24px;border-radius:12px;box-shadow:0 2px 10px #0000000d}
+h1{font-size:23px;margin-top:0} form{display:grid;gap:14px} label{display:grid;gap:6px;font-weight:600;font-size:14px}
+input,select{width:100%;padding:10px;border:1px solid #cbd5d9;border-radius:7px;font:inherit}
+.actions{display:flex;gap:8px;justify-content:flex-end} button{border:0;padding:11px 15px;border-radius:7px;background:#145b4b;color:white;cursor:pointer}
+button.secondary{background:#687780} button:disabled{opacity:.6;cursor:wait}
+#pesan-form{padding:10px;border-radius:7px;min-height:18px} .success{background:#e7f5ec;color:#176b37} .error{background:#fdecec;color:#a32121}
+#preview-foto{display:none;width:100px;height:100px;object-fit:cover;border-radius:8px} .note{font-size:13px;color:#64727a;margin:0}
+</style>
+</head>
+<body data-mode="tambah">
+<main>
+<h1 id="judul-form">Tambah Mahasiswa</h1>
+<p id="pesan-form" role="status" aria-live="polite"></p>
+<form id="form-mahasiswa" enctype="multipart/form-data">
+<label>NIM (maksimal 20 karakter)
+<input name="nim" required maxlength="20" autocomplete="off">
+</label>
+<label>Nama
+<input name="nama" required maxlength="100">
+</label>
+<label>Program Studi
+<input name="prodi" required maxlength="100">
+</label>
+<label>Status
+<select name="status" required>
+<option value="aktif">Aktif</option><option value="cuti">Cuti</option><option value="lulus">Lulus</option>
+</select>
+</label>
+<label>Email (boleh dikosongkan)
+<input name="email" type="email">
+</label>
+<label>ID Dosen (opsional)
+<input name="dosen_id" type="number" min="1">
+</label>
+<label>Foto (JPG/PNG, maksimal 2 MB)
+<input name="foto" id="foto" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+</label>
+<p class="note" id="foto-lama">Foto boleh dikosongkan.</p>
+<img id="preview-foto" alt="Pratinjau foto">
+<div class="actions">
+<button type="button" class="secondary" id="btn-kembali">Kembali</button>
+<button type="submit" id="btn-simpan">Tambah Mahasiswa</button>
+</div>
+</form>
+</main>
+<script src="form-mahasiswa.js"></script>
+</body>
+</html>

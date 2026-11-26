@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sistem Informasi Akademik - Data Mahasiswa</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 32px 16px; font-family: Arial, sans-serif;
+            background: #f3f6f8; color: #24313d;
+        }
+        main { max-width: 1000px; margin: 0 auto; }
+        .header {
+            background: #145b4b; color: white; padding: 24px;
+            border-radius: 12px; margin-bottom: 20px;
+        }
+        .header h1 { margin: 0 0 8px; font-size: 25px; }
+        .header p { margin: 0; opacity: .9; }
+        .panel {
+            background: white; padding: 22px; border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.05);
+        }
+        .panel-head {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 12px; margin-bottom: 16px;
+        }
+        h2 { margin: 0; font-size: 19px; }
+        button {
+            border: 0; background: #145b4b; color: white; padding: 10px 15px;
+            border-radius: 7px; cursor: pointer;
+        }
+        button:hover { background: #0e4639; }
+        #pesan { margin: 12px 0; color: #52616b; }
+        #pesan.error { color: #b42318; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 560px; }
+        th, td { text-align: left; padding: 13px 12px; border-bottom: 1px solid #e7ecef; }
+        th { background: #edf4f1; color: #24463d; }
+        tbody tr:hover { background: #f8fbf9; }
+        td.info { text-align: center; color: #52616b; }
+        td.error { text-align: center; color: #b42318; }
+        button:disabled { opacity: .6; cursor: wait; }
+        footer { color: #687780; font-size: 13px; margin-top: 18px; text-align: center; }
+    </style>
+</head>
+<body>
+<main>
+    <header class="header">
+        <h1>Sistem Manajemen Mahasiswa</h1>
+        <p>Informasi dan Data Mahasiswa</p>
+    </header>
+
+    <section class="panel">
+        <div class="panel-head">
+            <h2>Data Mahasiswa</h2>
+            <button id="btn-muat-ulang" type="button">Muat Ulang</button>
+        </div>
+
+        <p id="pesan" role="status" aria-live="polite">Memuat data...</p>
+
+        <div class="table-wrap">
+            <table id="tabel-mahasiswa">
+                <thead>
+                    <tr>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Program Studi</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+    <footer>Acara 29</footer>
+</main>
+<script src="util.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

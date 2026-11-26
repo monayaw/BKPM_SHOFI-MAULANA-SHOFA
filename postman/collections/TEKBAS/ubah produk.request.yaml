@@ -1,0 +1,15 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:5000/api/produk/6b00d452dacefbfc7e43679e
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"harga\": 5599000,\r
+
+    \    \"stok\": 12\r
+
+    }"
+examples: .resources/ubah produk.resources/examples
+order: 2000

@@ -33,14 +33,34 @@ paths:
       responses:
         '201':
           description: Registrasi berhasil.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '400':
           description: Format JSON tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '409':
           description: Username atau email sudah terdaftar.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '422':
           description: Validasi registrasi gagal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server atau database.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
   # LOGIN
   /login:
@@ -62,17 +82,38 @@ paths:
       responses:
         '200':
           description: Login berhasil dan token JWT dikembalikan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
         '400':
           description: Format JSON tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '401':
           description: Username atau password salah.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '422':
           description: Username dan password wajib diisi.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
   # MAHASISWA
   /mahasiswa:
+
     # GET
     get:
       tags:
@@ -91,12 +132,28 @@ paths:
       responses:
         '200':
           description: Data mahasiswa berhasil diambil.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '400':
           description: ID mahasiswa tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '404':
           description: Mahasiswa tidak ditemukan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
     # POST
     post:
@@ -123,14 +180,40 @@ paths:
       responses:
         '201':
           description: Mahasiswa berhasil ditambahkan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Format JSON tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '401':
           description: Token tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '409':
           description: NIM sudah terdaftar.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '422':
           description: Validasi data mahasiswa gagal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
     # PUT
     put:
@@ -156,18 +239,46 @@ paths:
       responses:
         '200':
           description: Data mahasiswa berhasil diperbarui.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '400':
-          description: ID tidak valid.
+          description: ID atau format JSON tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '401':
           description: Token tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '404':
           description: Mahasiswa tidak ditemukan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '409':
           description: NIM sudah digunakan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '422':
           description: Validasi gagal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
     # PATCH
     patch:
@@ -189,42 +300,46 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                nim:
-                  type: string
-                  pattern: '^[0-9]{9}$'
-                nama:
-                  type: string
-                prodi:
-                  type: string
-                status:
-                  type: string
-                  enum:
-                    - aktif
-                    - cuti
-                    - lulus
-                email:
-                  type: string
-                  format: email
-                dosen_id:
-                  type: integer
-                  nullable: true
+              $ref: '#/components/schemas/MahasiswaPatchRequest'
             example:
               nama: Budi Santoso
       responses:
         '200':
           description: Data mahasiswa berhasil diperbarui.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '400':
-          description: ID tidak valid.
+          description: ID atau format JSON tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '401':
           description: Token tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '404':
           description: Mahasiswa tidak ditemukan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '422':
           description: Validasi gagal.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
     # DELETE
     delete:
@@ -244,14 +359,34 @@ paths:
       responses:
         '200':
           description: Data mahasiswa berhasil dihapus.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '400':
           description: ID tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '401':
           description: Token tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '404':
           description: Mahasiswa tidak ditemukan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
         '500':
           description: Kesalahan server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
 
 components:
 
@@ -263,9 +398,10 @@ components:
       bearerFormat: JWT
       description: Masukkan token JWT hasil login.
 
-  # REQUEST DAN RESPONSE SCHEMAS
+  # SCHEMAS
   schemas:
 
+    # REGISTER REQUEST
     RegisterRequest:
       type: object
       required:
@@ -283,7 +419,9 @@ components:
         password:
           type: string
           minLength: 8
+          format: password
 
+    # LOGIN REQUEST
     LoginRequest:
       type: object
       required:
@@ -296,6 +434,25 @@ components:
           type: string
           format: password
 
+    # LOGIN RESPONSE
+    LoginResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            token:
+              type: string
+              description: JWT hasil autentikasi.
+        timestamp:
+          type: string
+          format: date-time
+
+    # MAHASISWA REQUEST
     MahasiswaRequest:
       type: object
       required:
@@ -326,6 +483,32 @@ components:
           type: integer
           nullable: true
 
+    # MAHASISWA PATCH REQUEST
+    MahasiswaPatchRequest:
+      type: object
+      minProperties: 1
+      properties:
+        nim:
+          type: string
+          pattern: '^[0-9]{9}$'
+        nama:
+          type: string
+        prodi:
+          type: string
+        status:
+          type: string
+          enum:
+            - aktif
+            - cuti
+            - lulus
+        email:
+          type: string
+          format: email
+        dosen_id:
+          type: integer
+          nullable: true
+
+    # GENERAL API RESPONSE
     ApiResponse:
       type: object
       properties:
@@ -333,7 +516,8 @@ components:
           type: boolean
         message:
           type: string
-        data: {}
+        data:
+          nullable: true
         errors:
           type: object
           additionalProperties: true

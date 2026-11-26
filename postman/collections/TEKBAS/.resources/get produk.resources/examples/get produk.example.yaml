@@ -1,0 +1,38 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/produk
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"VIVO-V30-256\",\r
+
+      \    \"merek\": \"Vivo\",\r
+
+      \    \"model\": \"V30\",\r
+
+      \    \"harga\": 5999000,\r
+
+      \    \"stok\": 8,\r
+
+      \    \"kategori\": \"Smartphone\"\r
+
+      }"
+response:
+  statusCode: 401
+  statusText: UNAUTHORIZED
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 00:56:34 GMT
+    Content-Type: application/json
+    Content-Length: "61"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "pesan": "Token tidak ditemukan!",
+        "status": "error"
+      }
+order: 1000

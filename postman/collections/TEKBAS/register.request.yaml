@@ -1,0 +1,17 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:5000/api/register
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"nama\": \"Shofi\",\r
+
+    \    \"email\": \"shofi@gmail.com\",\r
+
+    \    \"password\": \"shofi123\"\r
+
+    }"
+examples: .resources/register.resources/examples
+order: 4000

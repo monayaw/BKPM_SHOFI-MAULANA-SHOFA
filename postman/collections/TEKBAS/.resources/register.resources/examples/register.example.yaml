@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/register
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"nama\": \"kelompok\",\r
+
+      \    \"email\": \"kelompok@gmail.com\",\r
+
+      \    \"password\": \"klmpk123\"\r
+
+      }"
+response:
+  statusCode: 201
+  statusText: CREATED
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 00:31:49 GMT
+    Content-Type: application/json
+    Content-Length: "97"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "id": "6b00e675af5b14891ac7ddae",
+        "pesan": "Registrasi berhasil!",
+        "status": "success"
+      }
+order: 1000

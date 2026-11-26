@@ -1,0 +1,37 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/login
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"email\": \"adminn@jayaphone.com\",\r
+
+      \    \"password\": \"admin123\"\r
+
+      }"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 00:50:09 GMT
+    Content-Type: application/json
+    Content-Length: "397"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "email": "adminn@jayaphone.com",
+          "id": "6b00e79af5d270141bbdb309",
+          "nama": "Admin Jaya Phone Cell",
+          "role": "admin",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNmIwMGU3OWFmNWQyNzAxNDFiYmRiMzA5Iiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzk1MjI5NDA5fQ.AJcb1WPc0Q9fkGw1YNiG9u4AfAzEYryLkdEHfObU2JU"
+        },
+        "pesan": "Login berhasil!",
+        "status": "success"
+      }
+order: 3000

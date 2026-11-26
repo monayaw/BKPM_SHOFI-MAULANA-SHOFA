@@ -1,0 +1,39 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/pesanan
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"SAM-A55-128\",\r
+
+      \    \"jumlah\": 2\r
+
+      }"
+response:
+  statusCode: 201
+  statusText: CREATED
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 02:14:06 GMT
+    Content-Type: application/json
+    Content-Length: "292"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "harga_satuan": 5499000,
+          "id_pesanan": "6b00fe6ef2b8e3b6f496d476",
+          "jumlah": 2,
+          "nama_produk": "Samsung Galaxy A55",
+          "sku": "SAM-A55-128",
+          "status": "diproses",
+          "subtotal": 10998000
+        },
+        "pesan": "Pesanan berhasil dibuat!",
+        "status": "success"
+      }
+order: 5000

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Admin - Smart Village</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            padding: 28px 16px;
+            font-family: Arial, sans-serif;
+            background: #f3f6f8;
+            color: #24313d
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto
+        }
+
+        .header,
+        .panel {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 10px #0000000d
+        }
+
+        .header {
+            background: #145b4b;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0 0 7px
+        }
+
+        h2 {
+            font-size: 19px;
+            margin: 0
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        button {
+            border: 0;
+            background: #145b4b;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 7px;
+            cursor: pointer
+        }
+
+        button:hover {
+            filter: brightness(.9)
+        }
+
+        .header button {
+            background: white;
+            color: #145b4b
+        }
+
+        .summary {
+            font-size: 16px;
+            margin: 12px 0
+        }
+
+        .table-wrap {
+            overflow-x: auto
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 11px;
+            border-bottom: 1px solid #e7ecef
+        }
+
+        th {
+            background: #edf4f1
+        }
+
+        #pesan {
+            color: #52616b
+        }
+
+        .admin-only {
+            display: none
+        }
+
+        body.is-admin .admin-only {
+            display: inline-block
+        }
+
+        .small {
+            padding: 7px 10px;
+            margin-right: 4px
+        }
+
+        .danger {
+            background: #b42318
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <div>
+                <h1>Dashboard Smart Village</h1>
+                <p id="identitas">Memeriksa sesi...</p>
+            </div><button id="btn-logout" type="button">Logout</button>
+        </header>
+        <section class="panel">
+            <h2>Ringkasan</h2>
+            <p class="summary">Total mahasiswa: <strong id="total-mahasiswa">-</strong></p>
+        </section>
+        <section class="panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                <h2>Data Mahasiswa</h2><button id="btn-tambah" class="admin-only" type="button">Tambah
+                    Mahasiswa</button>
+            </div>
+            <p id="pesan" role="status">Memuat data...</p>
+            <div class="table-wrap">
+                <table id="tabel-mahasiswa">
+                    <thead>
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Prodi</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th class="admin-only">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

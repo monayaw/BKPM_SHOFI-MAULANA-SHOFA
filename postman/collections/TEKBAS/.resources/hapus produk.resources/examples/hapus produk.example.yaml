@@ -1,0 +1,24 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/produk/6b00d452dacefbfc7e43679e
+  method: DELETE
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Fri, 20 Nov 2026 23:40:52 GMT
+    Content-Type: application/json
+    Content-Length: "65"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "pesan": "Produk berhasil dihapus!",
+        "status": "success"
+      }
+order: 1000

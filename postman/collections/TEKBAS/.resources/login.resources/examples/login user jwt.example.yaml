@@ -1,0 +1,37 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/login
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"email\": \"shofi@gmail.com\",\r
+
+      \    \"password\": \"shofi123\"\r
+
+      }"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 01:00:52 GMT
+    Content-Type: application/json
+    Content-Length: "383"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "email": "shofi@gmail.com",
+          "id": "6b0007eb59cb3a32c2466469",
+          "nama": "Shofi",
+          "role": "customer",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNmIwMDA3ZWI1OWNiM2EzMmMyNDY2NDY5Iiwicm9sZSI6ImN1c3RvbWVyIiwiZXhwIjoxNzk1MjMwMDUyfQ.ggA6dqXYUXDDHQXlouMiiZIRoqiufhqYYdGg1DLZAio"
+        },
+        "pesan": "Login berhasil!",
+        "status": "success"
+      }
+order: 4000

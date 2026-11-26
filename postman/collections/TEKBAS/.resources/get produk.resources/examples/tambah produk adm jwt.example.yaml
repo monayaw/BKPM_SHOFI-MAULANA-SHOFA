@@ -1,0 +1,39 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/produk
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"IPHONE-A60-128\",\r
+
+      \    \"merek\": \"IPHONE\",\r
+
+      \    \"model\": \"18PRO\",\r
+
+      \    \"harga\": 2399000,\r
+
+      \    \"stok\": 10,\r
+
+      \    \"aktif\": true\r
+
+      }"
+response:
+  statusCode: 201
+  statusText: CREATED
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 00:57:49 GMT
+    Content-Type: application/json
+    Content-Length: "105"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "id": "6b00ec8d883e452bace0e261",
+        "pesan": "Produk berhasil ditambahkan!",
+        "status": "success"
+      }
+order: 2000

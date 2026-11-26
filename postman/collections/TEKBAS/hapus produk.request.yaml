@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:5000/api/produk/6b00038721bbcdae84296c24
+method: DELETE
+body:
+  type: json
+  content: ""
+examples: .resources/hapus produk.resources/examples
+order: 3000

@@ -1,0 +1,30 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/pesanan
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"SAM-A55-128\",\r
+
+      \    \"jumlah\": 2\r
+
+      }"
+response:
+  statusCode: 401
+  statusText: UNAUTHORIZED
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 02:26:46 GMT
+    Content-Type: application/json
+    Content-Length: "61"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "pesan": "Token tidak ditemukan!",
+        "status": "error"
+      }
+order: 1000

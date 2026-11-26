@@ -1,0 +1,15 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:5000/api/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"shofi@gmail.com\",\r
+
+    \    \"password\": \"shofi123\"\r
+
+    }"
+examples: .resources/login.resources/examples
+order: 5000

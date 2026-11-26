@@ -13,7 +13,6 @@ cloudResources:
   environments:
     ../postman/environments/Acara 19 - Local.environment.yaml: 59017768-4df87d92-3031-44aa-bdfe-b7e95d4e4acd
     ../postman/environments/Acara 19 - Staging (Template).environment.yaml: 59017768-e0b9ebba-9bd3-4679-9b32-98c2bce0a39c
-    ../postman/environments/New Environment.environment.yaml: 59017768-f3acb1bb-dfbb-46b0-8eb3-8bd48419a4ae
   documents:
     ../postman/documents/New Document.md: 9e3624e8-ed50-4318-88d1-62ef63ea74bc
   globals:

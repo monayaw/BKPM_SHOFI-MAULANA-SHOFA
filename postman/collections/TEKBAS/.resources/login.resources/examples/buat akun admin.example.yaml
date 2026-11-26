@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/admin
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"nama\": \"Admin Jaya Phone Cell\",\r
+
+      \    \"email\": \"adminn@jayaphone.com\",\r
+
+      \    \"password\": \"admin123\"\r
+
+      }"
+response:
+  statusCode: 201
+  statusText: CREATED
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 00:36:42 GMT
+    Content-Type: application/json
+    Content-Length: "104"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "id": "6b00e79af5d270141bbdb309",
+        "pesan": "Akun admin berhasil dibuat!",
+        "status": "success"
+      }
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/pesanan
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"SAM-A55-128\",\r
+
+      \    \"jumlah\": 100\r
+
+      }"
+response:
+  statusCode: 409
+  statusText: CONFLICT
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 02:16:38 GMT
+    Content-Type: application/json
+    Content-Length: "87"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "pesan": "Produk tidak tersedia atau stok tidak mencukupi!",
+        "status": "error"
+      }
+order: 6000

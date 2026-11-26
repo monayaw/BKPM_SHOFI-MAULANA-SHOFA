@@ -1,0 +1,30 @@
+$kind: http-example
+request:
+  url: http://127.0.0.1:5000/api/pesanan
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"sku\": \"SAM-A55-128\",\r
+
+      \    \"jumlah\": 0\r
+
+      }"
+response:
+  statusCode: 400
+  statusText: BAD REQUEST
+  headers:
+    Server: Werkzeug/3.1.9 Python/3.14.10
+    Date: Sat, 21 Nov 2026 02:22:58 GMT
+    Content-Type: application/json
+    Content-Length: "87"
+    Connection: close
+  body:
+    type: json
+    content: |-
+      {
+        "pesan": "SKU dan jumlah pesanan harus diisi dengan benar!",
+        "status": "error"
+      }
+order: 7000
